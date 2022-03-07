@@ -31,7 +31,7 @@ namespace _03._MOBA_Challenger
                     string name = cmd[0];
                     string position = cmd[1];
                     int skill = int.Parse(cmd[2]);
-                    if (!players.ContainsKey(name))
+                        if (!players.ContainsKey(name))
                     {
                         players.Add(name, new Dictionary<string, int>());
                     }
