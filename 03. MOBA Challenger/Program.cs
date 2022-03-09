@@ -78,9 +78,9 @@ namespace _03._MOBA_Challenger
 
                 Console.WriteLine($"{player.Key}: {player.Value.Values.Sum()} skill");
 
-                foreach (var kvp in player.Value.OrderByDescending(skill => skill.Value).ThenBy(pos => pos.Key))
+                foreach (var item in player.Value.OrderByDescending(skill => skill.Value).ThenBy(pos => pos.Key))
                 {
-                    Console.WriteLine($"- {kvp.Key} <::> {kvp.Value}");
+                    Console.WriteLine($"- {item.Key} <::> {item.Value}");
                 }
             }
         }

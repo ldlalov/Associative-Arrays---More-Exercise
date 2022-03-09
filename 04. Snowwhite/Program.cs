@@ -2,59 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _04._Snowwhite
+
+namespace Snowwhite1
 {
     class Dwarf
     {
-        public Dwarf(string name, string color, int physics)
+        public Dwarf(string name, int physics)
         {
             this.Name = name;
-            this.Color = color;
             this.Physics = physics;
         }
         public string Name { get; set; }
-        public string Color { get; set; }
         public int Physics { get; set; }
     }
+
     internal class Program
     {
         static void Main(string[] args)
         {
+            Dictionary<string, Dictionary<string, int>> dwarfs = new Dictionary<string, Dictionary<string, int>>();
             string input;
-            List<Dwarf> dwarfs = new List<Dwarf>();
             while ((input = Console.ReadLine()) != "Once upon a time")
             {
                 string[] cmd = input.Split(" <:> ");
                 string name = cmd[0];
                 string color = cmd[1];
                 int physics = int.Parse(cmd[2]);
-                Dwarf dwarf = new Dwarf(name, color, physics);
-                bool dwarfExist = false;
-                foreach (var item in dwarfs)
+                if (!dwarfs.ContainsKey(color))
                 {
-                    if (item.Name == name && item.Color == color)
-                    {
-                        dwarfExist = true;
-                        if (item.Physics < physics)
-                        {
-                            item.Physics = physics;
-                            break;
-                        }
-                        break;
-                    }
+                    dwarfs.Add(color, new Dictionary<string, int>());
+                    dwarfs[color].Add(name, physics);
                 }
-                if (!dwarfExist)
+                if (!dwarfs[color].ContainsKey(name))
                 {
-                dwarfs.Add(dwarf);
+                    dwarfs[color].Add(name, physics);
+                }
+                if (dwarfs[color][name] < physics)
+                {
+                    dwarfs[color][name] = physics;
                 }
             }
-            var orderedHats = dwarfs.GroupBy(dwarfs => dwarfs.Name).SelectMany(dwarfs => dwarfs);
-            var ordered = dwarfs.OrderByDescending(x => x.Physics);
-            foreach (var dwarf in ordered.GroupBy(x => x.Color).SelectMany(x => x))
+            Dictionary<string, int> ordered = new Dictionary<string, int>();
+
+            foreach (var color in dwarfs.OrderByDescending(x => x.Value.Count()))
             {
-                Console.WriteLine(String.Join(' ',$"({dwarf.Color}) {dwarf.Name} <-> {dwarf.Physics}"));
+                foreach (var dwarf in color.Value)
+                {
+                    ordered.Add($"({color.Key}) {dwarf.Key} <-> ", dwarf.Value);
+                }
+            }
+            foreach (var dwar in ordered.OrderByDescending(x => x.Value))
+            {
+                Console.WriteLine($"{dwar.Key}{dwar.Value}");
             }
         }
     }
 }
-

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. MOBA Challenger", "03. 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Snowwhite", "04. Snowwhite\04. Snowwhite.csproj", "{373A4282-09BD-4E27-9C95-84792AC15999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Dragon Army", "05. Dragon Army\05. Dragon Army.csproj", "{91C4E781-D35E-476B-B1B1-2FC3B75C7C24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{373A4282-09BD-4E27-9C95-84792AC15999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{373A4282-09BD-4E27-9C95-84792AC15999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{373A4282-09BD-4E27-9C95-84792AC15999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C4E781-D35E-476B-B1B1-2FC3B75C7C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C4E781-D35E-476B-B1B1-2FC3B75C7C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C4E781-D35E-476B-B1B1-2FC3B75C7C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C4E781-D35E-476B-B1B1-2FC3B75C7C24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
